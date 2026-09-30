@@ -1,0 +1,435 @@
+<!--Rubem Mateus. ADS-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Doce Sabor - Pedidos Online</title>
+    <style>
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #fff8f0;
+            color: #3e2c1b;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, #8b5a2b, #c28a4a);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        nav {
+            background-color: #5a3e1b;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #f5e6d3;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #d49a6a;
+            color: #2c1a0b;
+        }
+
+        /* ===== PARALLAX ===== */
+        .parallax-section {
+            background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.8rem;
+            font-weight: bold;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+
+        section h2 {
+            color: #5a3e1b;
+            border-bottom: 4px solid #d49a6a;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+        }
+
+        /* ===== TABELA ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        thead {
+            background-color: #5a3e1b;
+            color: white;
+        }
+
+        th, td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e6d6c4;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f1e9;
+        }
+
+        td:last-child {
+            font-weight: bold;
+            color: #8b5a2b;
+        }
+
+        /* ===== MÍDIA ===== */
+        #midia img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 0.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        #midia video {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* ===== FORMULÁRIO ===== */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+        }
+
+        form label {
+            font-weight: 600;
+            color: #3e2c1b;
+        }
+
+        form input, form select, form textarea {
+            padding: 0.8rem;
+            border: 2px solid #e6d6c4;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: #c28a4a;
+            outline: none;
+        }
+
+        form button {
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
+        form button:hover {
+            background-color: #1ebe5d;
+            transform: scale(1.02);
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background-color: #3e2c1b;
+            color: #e6d6c4;
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border-top: 6px solid #d49a6a;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .parallax-section {
+                font-size: 1.8rem;
+                min-height: 200px;
+                background-attachment: scroll; /* melhor para mobile */
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 1rem;
+                border: 1px solid #e6d6c4;
+                border-radius: 8px;
+                padding: 0.5rem;
+            }
+
+            td {
+                border: none;
+                padding: 0.4rem 0.6rem;
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #eee;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #5a3e1b;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .parallax-section {
+                font-size: 1.4rem;
+                min-height: 150px;
+            }
+
+            nav ul li a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            form button {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍰 Confeitaria Doce Sabor</h1>
+        <p>O melhor da confeitaria artesanal direto para a sua casa</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#cardapio">📋 Cardápio</a></li>
+            <li><a href="#midia">🎥 Mídia</a></li>
+            <li><a href="#pedido">📝 Faça seu Pedido</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seção Parallax -->
+    <div class="parallax-section">
+        ✨ Feito com Amor e Tradição ✨
+    </div>
+
+    <main>
+        <!-- CARDÁPIO -->
+        <section id="cardapio">
+            <h2>📌 Nosso Cardápio e Tabela de Preços</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Preço (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Produto">Bolo de Chocolate</td>
+                        <td data-label="Descrição">Massa fofofa com cobertura de ganache trufada</td>
+                        <td data-label="Preço">R$ 45,00</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Produto">Torta de Morango</td>
+                        <td data-label="Descrição">Creme belga com morangos frescos selecionados</td>
+                        <td data-label="Preço">R$ 55,00</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Produto">Bolo de Cenoura com Cobertura</td>
+                        <td data-label="Descrição">Massa macia com calda de chocolate caseira</td>
+                        <td data-label="Preço">R$ 40,00</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Produto">Cupcake de Baunilha</td>
+                        <td data-label="Descrição">Unidade com recheio de doce de leite e confeitos</td>
+                        <td data-label="Preço">R$ 8,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- MÍDIA -->
+        <section id="midia">
+            <h2>📸 Conheça nossa Cozinha</h2>
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Bolos confeitados artesanalmente expostos em balcão">
+            <p style="margin-top: 1.5rem; font-size: 1.1rem;">Assista ao vídeo de apresentação dos nossos processos:</p>
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        </section>
+
+        <!-- PEDIDO -->
+        <section id="pedido">
+            <h2>📦 Faça o seu Pedido Online</h2>
+            <form action="#" method="POST" id="form-pedido">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+
+                <label for="telefone">WhatsApp (com DDD):</label>
+                <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+
+                <label for="produto-escolhido">Escolha o Produto:</label>
+                <select id="produto-escolhido" name="produto">
+                    <option value="chocolate">Bolo de Chocolate - R$ 45,00</option>
+                    <option value="morango">Torta de Morango - R$ 55,00</option>
+                    <option value="cenoura">Bolo de Cenoura - R$ 40,00</option>
+                    <option value="cupcake">Cupcake de Baunilha - R$ 8,00</option>
+                </select>
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" value="1">
+
+                <label for="observacoes">Observações do Pedido:</label>
+                <textarea id="observacoes" name="observacoes" rows="4" placeholder="Alguma restrição ou detalhe?"></textarea>
+
+                <button type="submit">📲 Enviar Pedido via WhatsApp</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Confeitaria Doce Sabor. Desenvolvido para a disciplina de Desenvolvimento Web I</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT PARA ENVIO VIA WHATSAPP ===== -->
+    <script>
+        document.getElementById('form-pedido').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const produtoSelect = document.getElementById('produto-escolhido');
+            const produto = produtoSelect.options[produtoSelect.selectedIndex].text;
+            const quantidade = document.getElementById('quantidade').value;
+            const observacoes = document.getElementById('observacoes').value.trim();
+
+            if (!nome || !telefone) {
+                alert('Por favor, preencha seu nome e telefone.');
+                return;
+            }
+
+            // Monta a mensagem para o WhatsApp
+            let mensagem = `Olá, gostaria de fazer um pedido:%0A%0A`;
+            mensagem += `*Nome:* ${nome}%0A`;
+            mensagem += `*Telefone:* ${telefone}%0A`;
+            mensagem += `*Produto:* ${produto}%0A`;
+            mensagem += `*Quantidade:* ${quantidade}%0A`;
+            if (observacoes) {
+                mensagem += `*Observações:* ${observacoes}%0A`;
+            }
+            mensagem += `%0AObrigado!`;
+
+            // Número do WhatsApp (coloque o número da confeitaria aqui, com DDD e sem espaços)
+            const numero = '5511999999999'; // Exemplo: 55 (Brasil) + 11 (DDD) + 999999999
+
+            const url = `https://wa.me/${numero}?text=${mensagem}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
